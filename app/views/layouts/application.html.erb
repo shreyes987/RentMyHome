@@ -10,6 +10,23 @@
   </head>
 
   <body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Rent My Home</a>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <% if user_signed_in? %>
+            <a class="nav-link" <%= link_to "Log out", destroy_user_session_path, :method=>'delete'%></a>
+            <% else %>
+            <a class="nav-link" href="<%= new_user_session_url %>">Sign In</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Sign up <span class="sr-only">(current)</span></a>
+        </li>
+          <% end %>
+      </ul>
+    </nav>
+  </header>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
   <%= yield %>
